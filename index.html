@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>n8n Full Page Chatbot</title>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <style>
+    html,
+    body,
+    #n8n-chat {
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      background: #f7f7fa;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    /* Removed #n8n-chat-root styles */
+    @media (max-width: 800px) {
+      #n8n-chat {
+        max-width: 100vw;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="n8n-chat"></div>
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    createChat({
+      webhookUrl: 'https://mushroomagency.app.n8n.cloud/webhook/ec4f8c9e-cdf7-4bcb-93e3-42b9d8113d80/chat',
+      target: document.getElementById('n8n-chat'),
+      // You can add more config here if needed
+    });
+  </script>
+</body>
+</html> 
